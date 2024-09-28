@@ -1,6 +1,6 @@
 var num = 0;
 
-alert("hello");
+window.alert("hello");
 
 function addangle()
 {
