@@ -1,4 +1,7 @@
 var num = 0;
+
+alert("hello");
+
 function addangle()
 {
     if(num + 10 <= 150)
