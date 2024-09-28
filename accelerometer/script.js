@@ -1,7 +1,12 @@
 var num = 0;
 
-window.alert("hello");
+window.addEventListener("devicemotion", process);
 
+function process(event)
+{
+    document.getElementById("reading").innerHTML = event.acceleration.x;
+}
+                        
 function addangle()
 {
     if(num + 10 <= 150)
