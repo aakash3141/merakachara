@@ -1,6 +1,21 @@
 var num = 0;
 
-window.addEventListener("devicemotion", process);
+function setup()
+{
+    if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
+    {
+        DeviceMotionEvent.requestPermission().then((response) => {
+            if (response == "granted")
+            {
+                window.addEventListener("devicemotion", process, true);
+            }
+        })
+    }
+    else
+    {
+        document.getElementById("reading").innerHTML = "There was an issue... :/"
+    }
+}
 
 function process(event)
 {
@@ -11,11 +26,11 @@ function addangle()
 {
     if(num + 10 <= 150)
     {
-      num += 10;
+        num += 10;
     }
     else
     {
-      num = 150;
+        num = 150;
     }
     document.getElementById("needle").style.transform = "rotate(" + num + "deg)";
 }
