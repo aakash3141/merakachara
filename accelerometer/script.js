@@ -1,4 +1,5 @@
 var num = 0;
+var dimension = "null";
 
 function setup()
 {
@@ -21,7 +22,28 @@ function process(event)
 {
     document.getElementById("reading").innerHTML = event.acceleration.x;
 }
-                        
+
+function optionchange()
+{
+    var element = document.getElementById("dimension");
+    if(element.value == "x")
+    {
+        window.alert("x");
+    }
+    else if (element.value == "y")
+    {
+        window.alert("y");
+    }
+    else if (element.value == "z")
+    {
+        window.alert("z");
+    }
+    else
+    {
+        window.alert("wtf");
+    }
+}
+
 function addangle()
 {
     if(num + 10 <= 150)
