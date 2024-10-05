@@ -37,7 +37,7 @@ function setup()
     }
     else
     {
-        document.getElementById("reading").innerHTML = "There was an issue... :/";
+        document.getElementById("reading").innerHTML = "Couldn't connect to accelerometer... :(";
     }
 }
 
