@@ -43,13 +43,16 @@ function setup()
 
 function processx(event)
 {
+    var accl = event.acceleration.x;
     if (negate == true)
     {
-        document.getElementById("reading").innerHTML = -1 * event.acceleration.x.toPrecision(3);
+        document.getElementById("reading").innerHTML = -1 * accl.toPrecision(3);
+        document.getElementById("needle").style.transform = "rotate(" + (accl * -50) + "deg)";
     }
     else
     {
-        document.getElementById("reading").innerHTML = event.acceleration.x.toPrecision(3);
+        document.getElementById("reading").innerHTML = accl.toPrecision(3);
+        document.getElementById("needle").style.transform = "rotate(" + (accl * 50) + "deg)";
     }
 }
 
