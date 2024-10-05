@@ -24,6 +24,13 @@ function setup()
                     window.addEventListener("devicemotion", processz, true);
                     window.alert("z");
                 }
+                else if (element.value == "null")
+                {
+                    window.removeEventListener("devicemotion", processx);
+                    window.removeEventListener("devicemotion", processy);
+                    window.removeEventListener("devicemotion", processz);
+                    document.getElementById("reading").innerHTML = "-- m/s^2";
+                }
             }
         });
     }
