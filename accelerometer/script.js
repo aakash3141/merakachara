@@ -1,4 +1,5 @@
 var num = 0;
+var negate = false;
 
 function setup()
 {
@@ -42,22 +43,48 @@ function setup()
 
 function processx(event)
 {
-    document.getElementById("reading").innerHTML = event.acceleration.x;
+    if (negate == true)
+    {
+        document.getElementById("reading").innerHTML = -1 * event.acceleration.x.toPrecision(3);
+    }
+    else
+    {
+        document.getElementById("reading").innerHTML = event.acceleration.x.toPrecision(3);
+    }
 }
 
 function processy(event)
 {
-    document.getElementById("reading").innerHTML = event.acceleration.y;
+    if (negate == true)
+    {
+        document.getElementById("reading").innerHTML = -1 * event.acceleration.y.toPrecision(3);
+    }
+    else
+    {
+        document.getElementById("reading").innerHTML = event.acceleration.y.toPrecision(3);
+    }
 }
 
 function processz(event)
 {
-    document.getElementById("reading").innerHTML = event.acceleration.z;
+    if (negate == true)
+    {
+        document.getElementById("reading").innerHTML = -1 * event.acceleration.z.toPrecision(3);
+    }
+    else
+    {
+        document.getElementById("reading").innerHTML = event.acceleration.z.toPrecision(3);
+    }
 }
 
 function optionchange()
 {
     setup();
+}
+
+function negateaccl()
+{
+    negate = !negate;
 }
 
 function addangle()
