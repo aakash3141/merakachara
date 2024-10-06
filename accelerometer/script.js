@@ -12,22 +12,16 @@ function setup()
             {
                 if (element.value == "x")
                 {
-                    //window.removeEventListener("devicemotion", processy);
-                    //window.removeEventListener("devicemotion", processz);
                     window.addEventListener("devicemotion", processx, true);
                     window.alert("x");
                 }
                 else if (element.value == "y")
                 {
-                    //window.removeEventListener("devicemotion", processx);
-                    //window.removeEventListener("devicemotion", processz);
                     window.addEventListener("devicemotion", processy, true);
                     window.alert("y");
                 }
                 else if (element.value == "z")
                 {
-                    //window.removeEventListener("devicemotion", processx);
-                    //window.removeEventListener("devicemotion", processy);
                     window.addEventListener("devicemotion", processz, true);
                     window.alert("z");
                 }
@@ -94,7 +88,6 @@ function optionchange()
 function negateaccl()
 {
     negate = !negate;
-    setup();
 }
 
 function addangle()
