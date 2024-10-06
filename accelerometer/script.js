@@ -82,6 +82,7 @@ function processz(event)
 
 function optionchange()
 {
+    window.alert("changed");
     setup();
 }
 
