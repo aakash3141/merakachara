@@ -36,7 +36,7 @@ function setup()
             }
             else
             {
-                window.alert("Permission to use sensor was not granted. Please wait an unreasonable amount of time until Chrome asks you for permission again.";
+                window.alert("Permission to use sensor was not granted. Please wait an unreasonable amount of time until Chrome asks you for permission again.");
             }
         });
     }
