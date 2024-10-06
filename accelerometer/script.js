@@ -10,6 +10,7 @@ function setup()
     {
         window.alert("devicemotionevent exists");
         DeviceMotionEvent.requestPermission().then((response) => {
+            window.alert("asked for permission");
             if (response == "granted")
             {
                 window.alert("response granted");
