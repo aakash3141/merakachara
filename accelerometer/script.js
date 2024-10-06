@@ -31,9 +31,9 @@ function setup()
                 }
                 else if (element.value == "null")
                 {
-                    window.removeEventListener("devicemotion", processx);
-                    window.removeEventListener("devicemotion", processy);
-                    window.removeEventListener("devicemotion", processz);
+                    //window.removeEventListener("devicemotion", processx);
+                    //window.removeEventListener("devicemotion", processy);
+                    //window.removeEventListener("devicemotion", processz);
                     document.getElementById("reading").innerHTML = "-- m/s^2";
                 }
             }
