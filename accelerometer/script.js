@@ -3,7 +3,6 @@ var negate = false;
 
 function setup()
 {
-    window.alert("setup called");
     var element = document.getElementById("dimension");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
@@ -52,28 +51,13 @@ function setup()
 function processx(event)
 {
     var accl = event.acceleration.x;
-    if (negate == true)
-    {
-        document.getElementById("reading").innerHTML = -1 * accl.toPrecision(3);
-        document.getElementById("needle").style.transform = "rotate(" + (accl * -50) + "deg)";
-    }
-    else
-    {
-        document.getElementById("reading").innerHTML = accl.toPrecision(3);
-        document.getElementById("needle").style.transform = "rotate(" + (accl * 50) + "deg)";
-    }
+    document.getElementById("reading").innerHTML = -1 * accl.toPrecision(3);
+    document.getElementById("needle").style.transform = "rotate(" + (accl * -50) + "deg)";
 }
 
 function processy(event)
 {
-    if (negate == true)
-    {
-        document.getElementById("reading").innerHTML = -1 * event.acceleration.y.toPrecision(3);
-    }
-    else
-    {
-        document.getElementById("reading").innerHTML = event.acceleration.y.toPrecision(3);
-    }
+    document.getElementById("reading").innerHTML = -1 * event.acceleration.y.toPrecision(3);
 }
 
 function processz(event)
