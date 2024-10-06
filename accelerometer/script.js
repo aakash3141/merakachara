@@ -8,9 +8,11 @@ function setup()
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
+        window.alert("devicemotionevent exists");
         DeviceMotionEvent.requestPermission().then((response) => {
             if (response == "granted")
             {
+                window.alert("response granted");
                 if (element.value == "x")
                 {
                     window.addEventListener("devicemotion", processx, true);
