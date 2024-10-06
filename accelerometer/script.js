@@ -3,6 +3,7 @@ var negate = false;
 
 function setup()
 {
+    window.alert("setup called");
     var element = document.getElementById("dimension");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
