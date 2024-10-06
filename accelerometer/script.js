@@ -15,8 +15,8 @@ function setup()
                 window.alert("response granted");
                 if (element.value == "x")
                 {
-                    window.addEventListener("devicemotion", processx, true);
                     window.alert("x");
+                    window.addEventListener("devicemotion", processx, true);
                 }
                 else if (element.value == "y")
                 {
@@ -38,7 +38,7 @@ function setup()
             }
             else
             {
-                window.alert("Permission to use sensor was not granted. Please wait an unreasonable amount of time until Chrome asks you for permission again.");
+                window.alert("Permission not granted.");
             }
         });
     }
