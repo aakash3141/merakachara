@@ -7,12 +7,7 @@ function setup()
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
-        DeviceMotionEvent.requestPermission().then((response) => {
-            if (response == "granted")
-            {
-                window.addEventListener("devicemotion", processx, true);
-            }
-        });
+        window.addEventListener("devicemotion", processx, true);
     }
     else
     {
@@ -22,7 +17,7 @@ function setup()
 
 function processx(event)
 {
-    document.getElementById("reading").innerHTML = event.acceleration.x.toPrecision(3);
+    document.getElementById("reading").innerHTML = "hello";
     document.getElementById("needle").style.transform = "rotate(" + (event.acceleration.x * 50) + "deg)";
 }
 
