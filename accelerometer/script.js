@@ -8,7 +8,7 @@ function setup()
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
         DeviceMotionEvent.requestPermission().then((response) => {
-            window.addEventListener("devicemotion", processx, true);
+            window.addEventListener("devicemotion", processx);
         });
     }
     else
