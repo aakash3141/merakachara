@@ -20,7 +20,7 @@ function setup()
 function processx(event)
 {
     var ax = event.acceleration.x;
-    document.getElementById("reading").innerHTML = Math.round(100 * ax)/100 + "m/s^2";
+    document.getElementById("reading").innerHTML = Math.round(1000 * ax)/1000;
     document.getElementById("needle").style.transform = "rotate(" + (ax * 50) + "deg)";
 }
 
