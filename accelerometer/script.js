@@ -19,8 +19,9 @@ function setup()
 
 function processx(event)
 {
-    document.getElementById("reading").innerHTML = "hello";
-    document.getElementById("needle").style.transform = "rotate(" + (event.acceleration.x * 50) + "deg)";
+    var ax = event.acceleration.x;
+    document.getElementById("reading").innerHTML = Math.round(100 * ax)/100 + "m/s^2";
+    document.getElementById("needle").style.transform = "rotate(" + (ax * 50) + "deg)";
 }
 
 function processy(event)
@@ -38,11 +39,6 @@ function processz(event)
     {
         document.getElementById("reading").innerHTML = event.acceleration.z.toPrecision(3);
     }
-}
-
-function optionchange()
-{
-    setup();
 }
 
 function negateaccl()
