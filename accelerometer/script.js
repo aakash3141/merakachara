@@ -47,7 +47,19 @@ function processx(event)
 {
     var ax = event.acceleration.x;
     document.getElementById("reading").innerHTML = Math.round(1000 * ax)/1000;
-    document.getElementById("needle").style.transform = "rotate(" + (ax * 50) + "deg)";
+
+    if (ax > 5)
+    {
+        document.getElementById("needle").style.transform = "rotate(" + 150 + "deg)";
+    }
+    else if (ax < -5)
+    {
+        document.getElementById("needle").style.transform = "rotate(" + -150 + "deg)";
+    }
+    else
+    {
+        document.getElementById("needle").style.transform = "rotate(" + (ax * 30) + "deg)";
+    }
 }
 
 function processy(event)
