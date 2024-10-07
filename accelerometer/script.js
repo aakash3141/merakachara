@@ -7,39 +7,10 @@ function setup()
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
-        window.alert("devicemotionevent exists");
-        DeviceMotionEvent.requestPermission();
         DeviceMotionEvent.requestPermission().then((response) => {
-            window.alert("asked for permission");
             if (response == "granted")
             {
-                window.alert("response granted");
-                if (element.value == "x")
-                {
-                    window.alert("x");
-                    window.addEventListener("devicemotion", processx, true);
-                }
-                else if (element.value == "y")
-                {
-                    window.addEventListener("devicemotion", processy, true);
-                    window.alert("y");
-                }
-                else if (element.value == "z")
-                {
-                    window.addEventListener("devicemotion", processz, true);
-                    window.alert("z");
-                }
-                else if (element.value == "null")
-                {
-                    //window.removeEventListener("devicemotion", processx);
-                    //window.removeEventListener("devicemotion", processy);
-                    //window.removeEventListener("devicemotion", processz);
-                    document.getElementById("reading").innerHTML = "-- m/s^2";
-                }
-            }
-            else
-            {
-                window.alert("Permission not granted.");
+                window.addEventListener("devicemotion", processx, true);
             }
         });
     }
@@ -51,9 +22,8 @@ function setup()
 
 function processx(event)
 {
-    var accl = event.acceleration.x;
-    document.getElementById("reading").innerHTML = -1 * accl.toPrecision(3);
-    document.getElementById("needle").style.transform = "rotate(" + (accl * -50) + "deg)";
+    document.getElementById("reading").innerHTML = event.acceleration.x.toPrecision(3);
+    document.getElementById("needle").style.transform = "rotate(" + (event.acceleration.x * 50) + "deg)";
 }
 
 function processy(event)
