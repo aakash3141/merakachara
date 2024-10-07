@@ -8,7 +8,33 @@ function setup()
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
         DeviceMotionEvent.requestPermission().then((response) => {
-            window.addEventListener("devicemotion", processx);
+            if (response == "granted")
+            {
+                window.removeEventListener("devicemotion", processx);
+                window.removeEventListener("devicemotion", processx);
+                window.removeEventListener("devicemotion", processx);
+
+                if (element.value == "x")
+                {
+                    window.addEventListener("devicemotion", processx);
+                }
+                else if (element.value == "y")
+                {
+                    window.addEventListener("devicemotion", processy);
+                }
+                else if (element.value == "z")
+                {
+                    window.addEventListener("devicemotion", processz);
+                }
+                else if (element.value == "null")
+                {
+                    window.alert("wtf");
+                }
+            }
+            else
+            {
+                document.getElementById("reading").innerHTML = "Permission was denied... :(";
+            }
         });
     }
     else
@@ -26,19 +52,12 @@ function processx(event)
 
 function processy(event)
 {
-    document.getElementById("reading").innerHTML = -1 * event.acceleration.y.toPrecision(3);
+    document.getElementById("reading").innerHTML = event.acceleration.y.toPrecision(3) + "y";
 }
 
 function processz(event)
 {
-    if (negate == true)
-    {
-        document.getElementById("reading").innerHTML = -1 * event.acceleration.z.toPrecision(3);
-    }
-    else
-    {
-        document.getElementById("reading").innerHTML = event.acceleration.z.toPrecision(3);
-    }
+    document.getElementById("reading").innerHTML = -1 * event.acceleration.z.toPrecision(3) + "z";
 }
 
 function negateaccl()
