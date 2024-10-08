@@ -40,7 +40,7 @@ function setup()
                 else if (axis.value == "null")
                 {
                     window.alert("No measurement axis selected");
-                    document.getElementById("reading").innerHTML = "0.00";
+                    document.getElementById("reading").innerHTML = "0.00 (no axis)";
                 }
             }
             else
