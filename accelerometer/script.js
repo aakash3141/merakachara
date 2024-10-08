@@ -45,7 +45,16 @@ function setup()
 
 function processx(event)
 {
-    var ax = event.acceleration.x;
+    var ax = 0;
+    if (negate == true)
+    {
+        ax = -1 * event.acceleration.x;
+    }
+    else
+    {
+        ax = event.acceleration.x;
+    }
+    
     document.getElementById("reading").innerHTML = Math.round(1000 * ax)/1000;
 
     if (ax > 5)
