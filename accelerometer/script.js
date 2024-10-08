@@ -1,9 +1,10 @@
 var num = 0;
 var negate = false;
+var reading = document.getElementById("reading");
 
 function setup()
 {
-    var element = document.getElementById("dimension");
+    var axis = document.getElementById("dimension");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
@@ -11,24 +12,28 @@ function setup()
             if (response == "granted")
             {
                 window.removeEventListener("devicemotion", processx);
-                window.removeEventListener("devicemotion", processx);
-                window.removeEventListener("devicemotion", processx);
+                window.removeEventListener("devicemotion", processy);
+                window.removeEventListener("devicemotion", processz);
 
-                if (element.value == "x")
+                if (axis.value == "x")
                 {
                     window.addEventListener("devicemotion", processx);
+                    window.alert("Measurement axis is now the x-axis");
                 }
-                else if (element.value == "y")
+                else if (axis.value == "y")
                 {
                     window.addEventListener("devicemotion", processy);
+                    window.alert("Measurement axis is now the y-axis");
                 }
-                else if (element.value == "z")
+                else if (axis.value == "z")
                 {
                     window.addEventListener("devicemotion", processz);
+                    window.alert("Measurement axis is now the z-axis");
                 }
-                else if (element.value == "null")
+                else if (axis.value == "null")
                 {
-                    window.alert("wtf");
+                    window.alert("No measurement axis selected");
+                    document.getElementById("reading").innerHTML = "0.00";
                 }
             }
             else
@@ -39,7 +44,7 @@ function setup()
     }
     else
     {
-        document.getElementById("reading").innerHTML = "Couldn't connect to accelerometer... :(";
+        reading.innerHTML = "Couldn't connect to accelerometer... :(";
     }
 }
 
