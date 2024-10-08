@@ -1,6 +1,13 @@
 var num = 0;
 var negate = false;
-var reading = document.getElementById("reading");
+var reading;
+var needle;
+
+function definevars()
+{
+    reading = document.getElementById("reading");
+    needle = document.getElementById("needle");
+}
 
 function setup()
 {
