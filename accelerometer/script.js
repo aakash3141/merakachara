@@ -85,12 +85,58 @@ function processx(event)
 
 function processy(event)
 {
-    document.getElementById("reading").innerHTML = event.acceleration.y.toPrecision(3) + "y";
+    var a = 0;
+    if (negate == true)
+    {
+        a = -1 * event.acceleration.y;
+    }
+    else
+    {
+        a = event.acceleration.y;
+    }
+    
+    reading.innerHTML = Math.round(1000 * a)/1000;
+
+    if (a > 5)
+    {
+        needle.style.transform = "rotate(" + 150 + "deg)";
+    }
+    else if (a < -5)
+    {
+        needle.style.transform = "rotate(" + -150 + "deg)";
+    }
+    else
+    {
+        needle.style.transform = "rotate(" + (a * 30) + "deg)";
+    }
 }
 
 function processz(event)
 {
-    document.getElementById("reading").innerHTML = -1 * event.acceleration.z.toPrecision(3) + "z";
+    var a = 0;
+    if (negate == true)
+    {
+        a = -1 * event.acceleration.z;
+    }
+    else
+    {
+        a = event.acceleration.z;
+    }
+    
+    reading.innerHTML = Math.round(1000 * a)/1000;
+
+    if (a > 5)
+    {
+        needle.style.transform = "rotate(" + 150 + "deg)";
+    }
+    else if (a < -5)
+    {
+        needle.style.transform = "rotate(" + -150 + "deg)";
+    }
+    else
+    {
+        needle.style.transform = "rotate(" + (a * 30) + "deg)";
+    }
 }
 
 function negateaccl()
