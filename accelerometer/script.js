@@ -79,7 +79,7 @@ function processx(event)
     }
     else
     {
-        needle.style.transform = "rotate(" + (ax * 30) + "deg)";
+        needle.style.transform = "rotate(" + (a * 30) + "deg)";
     }
 }
 
