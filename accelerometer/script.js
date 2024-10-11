@@ -11,7 +11,7 @@ function definevars()
 
 function setup()
 {
-    var axis = document.getElementById("dimension");
+    var axis = document.getElementById("axis");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
     {
@@ -25,27 +25,27 @@ function setup()
                 if (axis.value == "x")
                 {
                     window.addEventListener("devicemotion", processx);
-                    window.alert("Measurement axis is now the x-axis");
+                    window.alert("Measuring along x-axis");
                 }
                 else if (axis.value == "y")
                 {
                     window.addEventListener("devicemotion", processy);
-                    window.alert("Measurement axis is now the y-axis");
+                    window.alert("Measuring along y-axis");
                 }
                 else if (axis.value == "z")
                 {
                     window.addEventListener("devicemotion", processz);
-                    window.alert("Measurement axis is now the z-axis");
+                    window.alert("Measuring along z-axis");
                 }
                 else if (axis.value == "null")
                 {
                     window.alert("No measurement axis selected");
-                    document.getElementById("reading").innerHTML = "0.00 (no axis)";
+                    reading.innerHTML = "0.00 (no axis)";
                 }
             }
             else
             {
-                document.getElementById("reading").innerHTML = "Permission was denied... :(";
+                reading.innerHTML = "Permission was denied... :(";
             }
         });
     }
@@ -57,29 +57,29 @@ function setup()
 
 function processx(event)
 {
-    var ax = 0;
+    var a = 0;
     if (negate == true)
     {
-        ax = -1 * event.acceleration.x;
+        a = -1 * event.acceleration.x;
     }
     else
     {
-        ax = event.acceleration.x;
+        a = event.acceleration.x;
     }
     
-    document.getElementById("reading").innerHTML = Math.round(1000 * ax)/1000;
+    reading.innerHTML = Math.round(1000 * a)/1000;
 
-    if (ax > 5)
+    if (a > 5)
     {
-        document.getElementById("needle").style.transform = "rotate(" + 150 + "deg)";
+        needle.style.transform = "rotate(" + 150 + "deg)";
     }
-    else if (ax < -5)
+    else if (a < -5)
     {
-        document.getElementById("needle").style.transform = "rotate(" + -150 + "deg)";
+        needle.style.transform = "rotate(" + -150 + "deg)";
     }
     else
     {
-        document.getElementById("needle").style.transform = "rotate(" + (ax * 30) + "deg)";
+        needle.style.transform = "rotate(" + (ax * 30) + "deg)";
     }
 }
 
