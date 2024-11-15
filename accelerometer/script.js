@@ -41,6 +41,7 @@ function setup()
                 {
                     window.alert("No measurement axis selected");
                     reading.innerHTML = "0.00 (no axis)";
+                    needle.style.transform = "rotate(0deg)";
                 }
             }
             else
@@ -139,7 +140,7 @@ function processz(event)
     }
 }
 
-function negateaccl()
+/*function negateaccl()
 {
     negate = !negate;
 }
@@ -168,4 +169,5 @@ function subtractangle()
      	num = -150;
     }
     document.getElementById("needle").style.transform = "rotate(" + num + "deg)";
-}
+}*/
+//Prototyping accelerometer needle movement
