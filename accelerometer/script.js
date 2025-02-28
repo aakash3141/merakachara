@@ -1,9 +1,10 @@
+//2-27-2025 edit
 var num = 0;
 var negate = false;
 var reading;
 var needle;
 
-function definevars()
+function definevars() //assign elements to variables when the thingy loads
 {
     reading = document.getElementById("reading");
     needle = document.getElementById("needle");
@@ -18,23 +19,23 @@ function setup()
         DeviceMotionEvent.requestPermission().then((response) => {
             if (response == "granted")
             {
-                window.removeEventListener("devicemotion", processx);
+                window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
                 window.removeEventListener("devicemotion", processy);
                 window.removeEventListener("devicemotion", processz);
 
                 if (axis.value == "x")
                 {
-                    window.addEventListener("devicemotion", processx);
+                    window.addEventListener("devicemotion", processx); //add x event handler
                     window.alert("Measuring along x-axis");
                 }
                 else if (axis.value == "y")
                 {
-                    window.addEventListener("devicemotion", processy);
+                    window.addEventListener("devicemotion", processy); //y event
                     window.alert("Measuring along y-axis");
                 }
                 else if (axis.value == "z")
                 {
-                    window.addEventListener("devicemotion", processz);
+                    window.addEventListener("devicemotion", processz); //z event
                     window.alert("Measuring along z-axis");
                 }
                 else if (axis.value == "null")
@@ -140,12 +141,12 @@ function processz(event)
     }
 }
 
-/*function negateaccl()
+function negateaccl()
 {
     negate = !negate;
 }
 
-function addangle()
+/*function addangle()
 {
     if(num + 10 <= 150)
     {
