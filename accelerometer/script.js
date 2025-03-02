@@ -12,7 +12,7 @@ function definevars() //assign elements to variables when the thingy loads
 
 function setup()
 {
-    document.getElementById("start").style.background.color = "#cccccc";
+    document.getElementById("start").style.background = "#cccccc";
     var axis = document.getElementById("axis");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
