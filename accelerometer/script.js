@@ -1,4 +1,4 @@
-//2-27-2025 edit
+//3-1-2025 edit
 var num = 0;
 var negate = false;
 var reading;
@@ -12,6 +12,7 @@ function definevars() //assign elements to variables when the thingy loads
 
 function setup()
 {
+    document.getElementById("start").style.background.color = "#cccccc";
     var axis = document.getElementById("axis");
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
