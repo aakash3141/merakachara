@@ -65,14 +65,10 @@ function setup()
 
 function processx(event)
 {
-    var a = 0;
+    var a = event.acceleration.x;
     if (negate == true)
     {
-        a = -1 * event.acceleration.x;
-    }
-    else
-    {
-        a = event.acceleration.x;
+        a *= -1;
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
@@ -149,9 +145,7 @@ function processz(event)
 
 function ptotal(event)
 {
-    var a = 0;
-
-    a = magnitude(event.acceleration.x, event.acceleration.y, event.acceleration.z);
+    var a = magnitude(event.acceleration.x, event.acceleration.y, event.acceleration.z);
 
     if (negate == true)
     {
