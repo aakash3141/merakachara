@@ -4,6 +4,11 @@ var negate = false;
 var reading;
 var needle;
 
+function magnitude(x, y, z)
+{
+    return Math.sqrt(x*x + y*y + z*z);
+}
+
 function definevars() //assign elements to variables when the thingy loads
 {
     reading = document.getElementById("reading");
@@ -124,6 +129,33 @@ function processz(event)
     else
     {
         a = event.acceleration.z;
+    }
+    
+    reading.innerHTML = Math.round(1000 * a)/1000;
+
+    if (a > 5)
+    {
+        needle.style.transform = "rotate(" + 150 + "deg)";
+    }
+    else if (a < -5)
+    {
+        needle.style.transform = "rotate(" + -150 + "deg)";
+    }
+    else
+    {
+        needle.style.transform = "rotate(" + (a * 30) + "deg)";
+    }
+}
+
+function ptotal(event)
+{
+    var a = 0;
+
+    a = magnitude(event.acceleration.x, event.acceleration.y, event.acceleration.z);
+
+    if (negate == true)
+    {
+        a *= -1;
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
