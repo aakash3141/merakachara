@@ -88,19 +88,7 @@ function processx(event)
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
-    rotateneedle(a); //see if this works or not
-    /*if (a > 5)
-    {
-        needle.style.transform = "rotate(" + 150 + "deg)";
-    }
-    else if (a < -5)
-    {
-        needle.style.transform = "rotate(" + -150 + "deg)";
-    }
-    else
-    {
-        needle.style.transform = "rotate(" + (a * 30) + "deg)";
-    }*/
+    rotateneedle(a);
 }
 
 function processy(event)
@@ -111,64 +99,25 @@ function processy(event)
         a *= -1;
     }
     
-    /*var a = 0;
-    if (negate == true)
-    {
-        a = -1 * event.acceleration.y;
-    }
-    else
-    {
-        a = event.acceleration.y;
-    }*/
-    
     reading.innerHTML = Math.round(1000 * a)/1000;
-
-    if (a > 5)
-    {
-        needle.style.transform = "rotate(" + 150 + "deg)";
-    }
-    else if (a < -5)
-    {
-        needle.style.transform = "rotate(" + -150 + "deg)";
-    }
-    else
-    {
-        needle.style.transform = "rotate(" + (a * 30) + "deg)";
-    }
+    rotateneedle(a);
 }
 
 function processz(event)
 {
-    var a = 0;
+    var a = event.acceleration.y;
     if (negate == true)
     {
-        a = -1 * event.acceleration.z;
-    }
-    else
-    {
-        a = event.acceleration.z;
+        a *= -1;
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
-
-    if (a > 5)
-    {
-        needle.style.transform = "rotate(" + 150 + "deg)";
-    }
-    else if (a < -5)
-    {
-        needle.style.transform = "rotate(" + -150 + "deg)";
-    }
-    else
-    {
-        needle.style.transform = "rotate(" + (a * 30) + "deg)";
-    }
+    rotateneedle(a);
 }
 
 function ptotal(event)
 {
     var a = magnitude(event.acceleration.x, event.acceleration.y, event.acceleration.z);
-
     if (negate == true)
     {
         a *= -1;
