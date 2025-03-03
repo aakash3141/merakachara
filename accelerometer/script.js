@@ -1,4 +1,4 @@
-//3-1-2025 edit
+//3-2-2025 edit
 var num = 0;
 var negate = false;
 var reading;
@@ -13,6 +13,22 @@ function definevars() //assign elements to variables when the thingy loads
 {
     reading = document.getElementById("reading");
     needle = document.getElementById("needle");
+}
+
+function rotateneedle(a)
+{
+    if (a > 5)
+    {
+        needle.style.transform = "rotate(" + 150 + "deg)";
+    }
+    else if (a < -5)
+    {
+        needle.style.transform = "rotate(" + -150 + "deg)";
+    }
+    else
+    {
+        needle.style.transform = "rotate(" + (a * 30) + "deg)";
+    }
 }
 
 function setup()
@@ -72,8 +88,8 @@ function processx(event)
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
-
-    if (a > 5)
+    rotateneedle(a); //see if this works or not
+    /*if (a > 5)
     {
         needle.style.transform = "rotate(" + 150 + "deg)";
     }
@@ -84,12 +100,18 @@ function processx(event)
     else
     {
         needle.style.transform = "rotate(" + (a * 30) + "deg)";
-    }
+    }*/
 }
 
 function processy(event)
 {
-    var a = 0;
+    var a = event.acceleration.y;
+    if (negate == true)
+    {
+        a *= -1;
+    }
+    
+    /*var a = 0;
     if (negate == true)
     {
         a = -1 * event.acceleration.y;
@@ -97,7 +119,7 @@ function processy(event)
     else
     {
         a = event.acceleration.y;
-    }
+    }*/
     
     reading.innerHTML = Math.round(1000 * a)/1000;
 
@@ -153,19 +175,7 @@ function ptotal(event)
     }
     
     reading.innerHTML = Math.round(1000 * a)/1000;
-
-    if (a > 5)
-    {
-        needle.style.transform = "rotate(" + 150 + "deg)";
-    }
-    else if (a < -5)
-    {
-        needle.style.transform = "rotate(" + -150 + "deg)";
-    }
-    else
-    {
-        needle.style.transform = "rotate(" + (a * 30) + "deg)";
-    }
+    rotateneedle(a);
 }
 
 function negateaccl()
