@@ -131,7 +131,7 @@ function processy(event) //copy this function again for processx if everything g
 
 function processz(event)
 {
-    var a = event.acceleration.y;
+    var a = event.acceleration.z;
     if (negate == true)
     {
         a *= -1;
