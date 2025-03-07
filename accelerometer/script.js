@@ -1,4 +1,4 @@
-//3-3-2025 edit
+//3-6-2025 edit
 //var num = 0;
 var negate = false;
 var reading;
@@ -124,6 +124,16 @@ function processy(event) //copy this function again for processx if everything g
     {
         a *= -1;
     }
+
+    avgdata[count] = a; //new
+    count++; //new
+
+    if (count == WINDOW) //new
+    {
+        count = 0;
+    }
+    
+    a = average(avgdata); //new
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
@@ -136,6 +146,16 @@ function processz(event)
     {
         a *= -1;
     }
+
+    avgdata[count] = a; //new
+    count++; //new
+
+    if (count == WINDOW) //new
+    {
+        count = 0;
+    }
+    
+    a = average(avgdata); //new
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
@@ -148,6 +168,16 @@ function ptotal(event)
     {
         a *= -1;
     }
+
+    avgdata[count] = a; //new
+    count++; //new
+
+    if (count == WINDOW) //new
+    {
+        count = 0;
+    }
+    
+    a = average(avgdata); //new
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
