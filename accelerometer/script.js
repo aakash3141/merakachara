@@ -1,4 +1,4 @@
-//3-7-2025 edit
+//5-16-2025 edit -- i have to graduate
 //var num = 0;
 var negate = false;
 var reading;
@@ -16,7 +16,7 @@ function average(data)
             sum += data[i];
         }
 
-    return sum / data.length; //integer division might fuck smth up
+    return sum / data.length; //integer division might fuck smth up -> nvm it doesn't
 }
 
 function magnitude(x, y, z)
@@ -52,7 +52,7 @@ function setup()
     var axis = document.getElementById("axis");
     count = 0; //new thing
     
-    if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function")
+    if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function") //this might be what's fucking up androids -- there may not be requestPermission() method
     {
         DeviceMotionEvent.requestPermission().then((response) => {
             if (response == "granted")
@@ -103,15 +103,17 @@ function processx(event)
         a *= -1;
     }
 
-    avgdata[count] = a; //new
-    count++; //new
+    avgdata[count] = a;
+    //count++; //old
 
-    if (count == WINDOW) //new
+    count = (count + 1) % WINDOW; //new
+
+    /*if (count == WINDOW) //old
     {
         count = 0;
-    }
+    }*/
     
-    a = average(avgdata); //new
+    a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
