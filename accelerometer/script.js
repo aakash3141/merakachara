@@ -91,7 +91,7 @@ function setup()
     }
     else
     {
-        reading.innerHTML = "Couldn't connect to accelerometer... :(";
+        reading.innerHTML = "DeviceMotionEvent or requestPermission is not available";
     }
 }
 
@@ -127,15 +127,17 @@ function processy(event) //copy this function again for processx if everything g
         a *= -1;
     }
 
-    avgdata[count] = a; //new
-    count++; //new
+    avgdata[count] = a;
+    //count++; //old
 
-    if (count == WINDOW) //new
+    count = (count + 1) % WINDOW; //new
+    
+    /*if (count == WINDOW) //old
     {
         count = 0;
-    }
+    }*/
     
-    a = average(avgdata); //new
+    a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
@@ -149,15 +151,17 @@ function processz(event)
         a *= -1;
     }
 
-    avgdata[count] = a; //new
-    count++; //new
+    avgdata[count] = a;
+    //count++; //old
 
-    if (count == WINDOW) //new
+    count = (count + 1) % WINDOW; //new
+
+    /*if (count == WINDOW) //old
     {
         count = 0;
-    }
+    }*/
     
-    a = average(avgdata); //new
+    a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
