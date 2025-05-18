@@ -1,4 +1,4 @@
-//5-16-2025 edit -- i have to graduate
+//5-18-2025 edit -- i have to graduate
 //var num = 0;
 var negate = false;
 var reading;
@@ -60,6 +60,7 @@ function setup()
                 window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
                 window.removeEventListener("devicemotion", processy);
                 window.removeEventListener("devicemotion", processz);
+                window.removeEventListener("devicemotion", ptotal);
 
                 if (axis.value == "x")
                 {
