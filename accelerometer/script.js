@@ -64,21 +64,21 @@ function setup()
                 if (axis.value == "x")
                 {
                     window.addEventListener("devicemotion", processx); //add x event handler
-                    //window.alert("Measuring along x-axis");
                 }
                 else if (axis.value == "y")
                 {
                     window.addEventListener("devicemotion", processy); //y event
-                    //window.alert("Measuring along y-axis");
                 }
                 else if (axis.value == "z")
                 {
                     window.addEventListener("devicemotion", processz); //z event
-                    //window.alert("Measuring along z-axis");
+                }
+                else if (axis.value == "total")
+                {
+                    window.addEventListener("devicemotion", ptotal); //total event
                 }
                 else if (axis.value == "null")
                 {
-                    //window.alert("No measurement axis selected");
                     reading.innerHTML = "0.00 (no axis)";
                     needle.style.transform = "rotate(0deg)";
                 }
