@@ -104,14 +104,8 @@ function processx(event)
     }
 
     avgdata[count] = a;
-    //count++; //old
 
-    count = (count + 1) % WINDOW; //new
-
-    /*if (count == WINDOW) //old
-    {
-        count = 0;
-    }*/
+    count = (count + 1) % WINDOW;
     
     a = average(avgdata);
     
@@ -128,15 +122,9 @@ function processy(event) //copy this function again for processx if everything g
     }
 
     avgdata[count] = a;
-    //count++; //old
 
-    count = (count + 1) % WINDOW; //new
-    
-    /*if (count == WINDOW) //old
-    {
-        count = 0;
-    }*/
-    
+    count = (count + 1) % WINDOW;
+
     a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
@@ -152,15 +140,9 @@ function processz(event)
     }
 
     avgdata[count] = a;
-    //count++; //old
 
-    count = (count + 1) % WINDOW; //new
+    count = (count + 1) % WINDOW;
 
-    /*if (count == WINDOW) //old
-    {
-        count = 0;
-    }*/
-    
     a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
@@ -175,15 +157,11 @@ function ptotal(event)
         a *= -1;
     }
 
-    avgdata[count] = a; //new
-    count++; //new
+    avgdata[count] = a;
 
-    if (count == WINDOW) //new
-    {
-        count = 0;
-    }
+    count = (count + 1) % WINDOW;
     
-    a = average(avgdata); //new
+    a = average(avgdata);
     
     reading.innerHTML = Math.round(1000 * a)/1000;
     rotateneedle(a);
