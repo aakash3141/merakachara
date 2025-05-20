@@ -1,4 +1,4 @@
-//5-18-2025 edit -- i have to graduate
+//5-20-2025 edit -- i have to graduate
 //var num = 0;
 var negate = false;
 var reading;
@@ -81,7 +81,6 @@ function setup2()
 function setup1()
 {
     document.getElementById("start").style.background = "#cccccc";
-    //var axis = document.getElementById("axis");
     count = 0; //new thing
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function") //this might be what's fucking up androids -- there may not be requestPermission() method
@@ -90,32 +89,6 @@ function setup1()
             if (response == "granted")
             {
                 setup2();
-                /*window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
-                window.removeEventListener("devicemotion", processy);
-                window.removeEventListener("devicemotion", processz);
-                window.removeEventListener("devicemotion", ptotal);
-
-                if (axis.value == "x")
-                {
-                    window.addEventListener("devicemotion", processx); //add x event handler
-                }
-                else if (axis.value == "y")
-                {
-                    window.addEventListener("devicemotion", processy); //y event
-                }
-                else if (axis.value == "z")
-                {
-                    window.addEventListener("devicemotion", processz); //z event
-                }
-                else if (axis.value == "total")
-                {
-                    window.addEventListener("devicemotion", ptotal); //total event
-                }
-                else if (axis.value == "null")
-                {
-                    reading.innerHTML = "0.00 (no axis)";
-                    needle.style.transform = "rotate(0deg)";
-                }*/
             }
             else
             {
