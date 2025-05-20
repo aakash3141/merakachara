@@ -46,10 +46,42 @@ function rotateneedle(a)
     }
 }
 
-function setup()
+function setup2()
+{         
+    var axis = document.getElementById("axis");
+    
+    window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
+    window.removeEventListener("devicemotion", processy);
+    window.removeEventListener("devicemotion", processz);
+    window.removeEventListener("devicemotion", ptotal);
+
+    if (axis.value == "x")
+    {
+        window.addEventListener("devicemotion", processx); //add x event handler
+    }
+    else if (axis.value == "y")
+    {
+        window.addEventListener("devicemotion", processy); //y event
+    }
+    else if (axis.value == "z")
+    {
+        window.addEventListener("devicemotion", processz); //z event
+    }
+    else if (axis.value == "total")
+    {
+        window.addEventListener("devicemotion", ptotal); //total event
+    }
+    else if (axis.value == "null")
+    {
+        reading.innerHTML = "0.00 (no axis)";
+        needle.style.transform = "rotate(0deg)";
+    }
+}
+
+function setup1()
 {
     document.getElementById("start").style.background = "#cccccc";
-    var axis = document.getElementById("axis");
+    //var axis = document.getElementById("axis");
     count = 0; //new thing
     
     if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function") //this might be what's fucking up androids -- there may not be requestPermission() method
@@ -57,7 +89,8 @@ function setup()
         DeviceMotionEvent.requestPermission().then((response) => {
             if (response == "granted")
             {
-                window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
+                setup2();
+                /*window.removeEventListener("devicemotion", processx); //basically like remove all event handlers -- start fresh
                 window.removeEventListener("devicemotion", processy);
                 window.removeEventListener("devicemotion", processz);
                 window.removeEventListener("devicemotion", ptotal);
@@ -82,7 +115,7 @@ function setup()
                 {
                     reading.innerHTML = "0.00 (no axis)";
                     needle.style.transform = "rotate(0deg)";
-                }
+                }*/
             }
             else
             {
