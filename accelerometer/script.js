@@ -6,7 +6,7 @@ var needle;
 var count = 0; //new var
 var avgdata = []; //new stuff
 
-const WINDOW = 3;
+const WINDOW = 30;
 
 function average(data)
 {
