@@ -3,10 +3,10 @@
 var negate = false;
 var reading;
 var needle;
-var count = 0; //new var
-var avgdata = []; //new stuff
+var count = 0;
+var avgdata = [];
 
-const WINDOW = 120;
+const WINDOW = 10;
 
 function average(data)
 {
@@ -16,7 +16,7 @@ function average(data)
             sum += data[i];
         }
 
-    return sum / data.length; //integer division might fuck smth up -> nvm it doesn't
+    return sum / data.length;
 }
 
 function magnitude(x, y, z)
