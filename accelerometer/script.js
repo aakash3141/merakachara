@@ -83,22 +83,29 @@ function setup1()
     document.getElementById("start").style.background = "#cccccc";
     count = 0; //new thing
     
-    if (DeviceMotionEvent && typeof(DeviceMotionEvent.requestPermission) === "function") //this might be what's fucking up androids -- there may not be requestPermission() method
+    if (DeviceMotionEvent) //this might be what's fucking up androids -- there may not be requestPermission() method
     {
-        DeviceMotionEvent.requestPermission().then((response) => {
-            if (response == "granted")
-            {
-                setup2();
-            }
-            else
-            {
-                reading.innerHTML = "Permission was denied... :(";
-            }
-        });
+        if (typeof(DeviceMotionEvent.requestPermission) === "function") //request permission on iOS devices
+        {
+            DeviceMotionEvent.requestPermission().then((response) => {
+                if (response == "granted")
+                {
+                    setup2();
+                }
+                else
+                {
+                    reading.innerHTML = "Permission was denied... :(";
+                }
+            });  
+        }
+        else
+        {
+            setup2(); //i hope this works -- the idea is that androids have DeviceMotionEvent but they lack requestPermission() method; this code should hopefully catch that......
+        }
     }
     else
     {
-        reading.innerHTML = "DeviceMotionEvent or requestPermission is not available";
+        reading.innerHTML = "DeviceMotionEvent is not available";
     }
 }
 
