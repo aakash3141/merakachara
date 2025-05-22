@@ -35,6 +35,11 @@
         {
             background: #65e687;
         }
+
+        #settings
+        {
+            z-index: 2;
+        }
         
         body
         {
@@ -47,7 +52,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <dialog id="settings"> <!--new settings dialog-->
             <h2>Settings</h2>
-            <br>
             <form method="dialog">
                 <select id="DUMMYaxis" onchange="document.getElementById('DUMMYstart').style.background = '#65e687';">
                     <option value="DUMMYnull">Choose Axis...</option>
@@ -56,11 +60,11 @@
                     <option value="DUMMYz">Axis: Z (m/s²)</option>
                     <option value="DUMMYtotal">Total (m/s²)</option>
                 </select>
-                <br>
+                <br><br>
                 <input type="checkbox" id="DUMMYnegateaccl" onchange="">
                 <label for="DUMMYnegateaccl">Negate acceleration</label>
-                <br>
-                <button id="DUMMYstart" onclick="">Start/Restart</button>
+                <br><br>
+                <button id="DUMMYstart" onclick="">Save</button>
             </form>
         </dialog>
         <div id="container">
