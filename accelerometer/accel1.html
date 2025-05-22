@@ -1,8 +1,8 @@
-<!--5-20-2025 edit-->
+<!--5-21-2025 edit-->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Accelerometer (ptype1)</title>
+        <title>Accelerometer v1.0</title>
     </head>
     <style>
         #needle {
@@ -45,6 +45,21 @@
     </script>
     <body onload="definevars();">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <dialog id="settings"> <!--new settings dialog-->
+            <h2>Settings</h2>
+            <form method="dialog">
+                <select id="DUMMYaxis" onchange="document.getElementById('DUMMYstart').style.background = '#65e687';">
+                    <option value="DUMMYnull">Choose Axis...</option>
+                    <option value="DUMMYx">Axis: X (m/s²)</option>
+                    <option value="DUMMYy">Axis: Y (m/s²)</option>
+                    <option value="DUMMYz">Axis: Z (m/s²)</option>
+                    <option value="DUMMYtotal">Total (m/s²)</option>
+                </select>
+                <input type="checkbox" id="DUMMYnegateaccl" onchange="">
+                <label for="DUMMYnegateaccl">Negate acceleration</label>
+                <button id="DUMMYstart" onclick="">Start/Restart</button>
+            </form>
+        </dialog>
         <div id="container">
             <img id="accelbg" src="accelbg.jpg">
             <img id="needle" src="needle.png">
