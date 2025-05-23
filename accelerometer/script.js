@@ -1,4 +1,4 @@
-//5-20-2025 edit -- i have to graduate
+//5-23-2025 edit -- i have to graduate
 //var num = 0;
 var negate = false;
 var reading;
@@ -80,7 +80,7 @@ function setup2()
 
 function setup1()
 {
-    document.getElementById("start").style.background = "#cccccc";
+    //document.getElementById("start").style.background = "#cccccc";
     count = 0; //new thing
     
     if (DeviceMotionEvent) //this might be what's fucking up androids -- there may not be requestPermission() method
