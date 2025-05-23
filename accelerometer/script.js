@@ -183,6 +183,7 @@ function ptotal(event)
 
 function negateaccl()
 {
+    window.alert("checkbox was checked!");
     negate = !negate;
 }
 
