@@ -52,6 +52,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <dialog id="settings"> <!--new settings dialog-->
             <h2>Settings</h2>
+            <label for="DUMMYaxis">Axis (m/s²):</label>
+            <br>
             <form method="dialog">
                 <select id="DUMMYaxis" onchange="document.getElementById('DUMMYstart').style.background = '#65e687';">
                     <option value="DUMMYnull">Choose Axis...</option>
@@ -64,7 +66,7 @@
                 <input type="checkbox" id="DUMMYnegateaccl" onchange="">
                 <label for="DUMMYnegateaccl">Negate acceleration</label>
                 <br><br>
-                <button id="DUMMYstart" onclick="">Save</button>
+                <button id="DUMMYstart" onclick="" autofocus>Save</button>
             </form>
         </dialog>
         <div id="container">
