@@ -55,24 +55,24 @@
             <label for="DUMMYaxis">Axis (m/s²):</label>
             <br>
             <form method="dialog">
-                <select id="DUMMYaxis">
-                    <option value="DUMMYnull">Choose Axis...</option>
-                    <option value="DUMMYx">X</option>
-                    <option value="DUMMYy">Y</option>
-                    <option value="DUMMYz">Z</option>
-                    <option value="DUMMYtotal">Total</option>
+                <select id="axis">
+                    <option value="null">Choose Axis...</option>
+                    <option value="x">X</option>
+                    <option value="y">Y</option>
+                    <option value="z">Z</option>
+                    <option value="total">Total</option>
                 </select>
                 <br><br>
-                <input type="checkbox" id="DUMMYnegateaccl" onchange="">
-                <label for="DUMMYnegateaccl">Negate acceleration</label>
+                <input type="checkbox" id="negateaccl" onchange="negateaccl();">
+                <label for="negateaccl">Negate acceleration</label>
                 <br><br>
-                <button id="DUMMYstart" onclick="" autofocus>Apply</button>
+                <button id="start" onclick="setup1();" autofocus>Apply</button>
             </form>
         </dialog>
         <div id="container">
             <img id="accelbg" src="accelbg.jpg">
             <img id="needle" src="needle.png">
-            <select id="axis" onchange="document.getElementById('start').style.background = '#65e687';">
+            <!--<select id="axis" onchange="document.getElementById('start').style.background = '#65e687';">
                 <option value="null">Choose Axis...</option>
                 <option value="x">Axis: X (m/s²)</option>
                 <option value="y">Axis: Y (m/s²)</option>
@@ -81,7 +81,7 @@
             </select>
             <button id="start" onclick="setup1();">Start/Restart</button>
             <input type="checkbox" id="negateaccl" onchange="negateaccl();">
-            <label for="negateaccl">Negate acceleration</label>
+            <label for="negateaccl">Negate acceleration</label>--> <!--wipe out current buttons-->
             <button onclick="document.getElementById('settings').showModal();">Settings (beta)</button>
             <center>
                 <h1 id="reading">0.00 (no axis)</h1>
