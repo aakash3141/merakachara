@@ -1,4 +1,4 @@
-//5-23-2025 edit -- i have to graduate
+//5-24-2025 edit -- i have to graduate
 //var num = 0;
 var negate = false;
 var reading;
@@ -80,8 +80,8 @@ function setup2()
 
 function setup1()
 {
-    //document.getElementById("start").style.background = "#cccccc";
-    count = 0; //new thing
+    avgdata.length = 0;
+    count = 0;
     
     if (DeviceMotionEvent) //this might be what's fucking up androids -- there may not be requestPermission() method
     {
@@ -107,6 +107,8 @@ function setup1()
     {
         reading.innerHTML = "DeviceMotionEvent is not available";
     }
+
+    document.getElementById("settings").close();
 }
 
 function processx(event)
