@@ -3,10 +3,11 @@
 var negate = false;
 var reading;
 var needle;
+var sensitivity;
 var count = 0;
 var avgdata = [];
 
-const WINDOW = 10;
+var WINDOW = 0; //thing i added last night
 
 function average(data)
 {
@@ -28,6 +29,7 @@ function definevars() //assign elements to variables when the thingy loads
 {
     reading = document.getElementById("reading");
     needle = document.getElementById("needle");
+    sensitivity = document.getElementById("sensitivity"); //thing i added last night
 }
 
 function rotateneedle(a)
@@ -82,6 +84,7 @@ function setup1()
 {
     avgdata.length = 0;
     count = 0;
+    WINDOW = 10 * (12 - sensitivity.value); //thing i added last night
     
     if (DeviceMotionEvent) //this might be what's fucking up androids -- there may not be requestPermission() method
     {
